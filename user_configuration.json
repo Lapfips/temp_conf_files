@@ -1,0 +1,75 @@
+{
+  "additional-repositories": ["multilib"],
+  "archinstall-language": "English",
+  "audio_config": {
+    "audio": "pulseaudio"
+  },
+  "bootloader": "grub-install",
+  "config_version": "2.8.6",
+  "debug": false,
+  "disk_config": {
+    "config_type": "default_layout",
+    "device_modifications": [
+      {
+        "device": "/dev/sda",
+        "partitions": [
+          {
+            "fs_type": "fat32",
+            "mountpoint": "/boot",
+            "size": { "unit": "GiB", "value": 1 },
+            "flags": ["boot"],
+            "status": "create"
+          },
+          {
+            "fs_type": "ext4",
+            "mountpoint": "/",
+            "size": { "unit": "GiB", "value": 50 },
+            "status": "create"
+          },
+          {
+            "fs_type": "ext4",
+            "mountpoint": "/home",
+            "size": { "unit": "GiB", "value": 100 },
+            "status": "create"
+          }
+        ],
+        "wipe": true
+      }
+    ]
+  },
+  "hostname": "archlinux",
+  "kernels": ["linux", "linux-lts"],
+  "locale_config": {
+    "kb_layout": "fr",
+    "sys_enc": "UTF-8",
+    "sys_lang": "en_US"
+  },
+  "mirror_config": {
+    "mirror_regions": {
+      "France": [
+        "http://mirror.cyberbits.eu/archlinux/$repo/os/$arch",
+        "https://mirror.theo546.fr/archlinux/$repo/os/$arch",
+        "http://mirrors.celianvdb.fr/archlinux/$repo/os/$arch"
+      ]
+    }
+  },
+  "network_config": {
+    "type": "dhcp"
+  },
+  "ntp": true,
+  "packages": ["firefox"],
+  "profile_config": {
+    "gfx_driver": "Nvidia (open kernel module for newer GPUs, Turing+)",
+    "greeter": "gdm",
+    "profile": {
+      "custom_settings": {
+        "Gnome": {}
+      },
+      "details": ["Gnome"],
+      "main": "Desktop"
+    }
+  },
+  "swap": true,
+  "timezone": "Europe/Paris",
+  "version": "2.8.6"
+}
